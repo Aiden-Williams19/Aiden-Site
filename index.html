@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiden Williams - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navigation" class="navigation">
+        <div class="nav-container">
+            <a href="#home" class="logo">Aiden Williams</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-layout">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-frame">
+                        <img src="aiden.jpeg" alt="Aiden Williams" class="hero-image" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #243b53, #627d98)'">
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Hey, I'm Aiden</span>
+                        <br>
+                        <span>A Developer</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        I craft beautiful digital experiences and bring creative ideas to life
+                    </p>
+                    <div class="hero-icons">
+                        <div class="icon-card">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16,18 22,12 16,6"></polyline>
+                                <polyline points="8,6 2,12 8,18"></polyline>
+                            </svg>
+                        </div>
+                        <div class="icon-card">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21,15 16,10 5,21"></polyline>
+                            </svg>
+                        </div>
+                        <div class="icon-card">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <a href="#projects" class="cta-button">
+                        View My Work
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">My Work</h2>
+                <p class="section-subtitle">
+                    A collection of projects and client demos I've built
+                </p>
+            </div>
+
+            <button class="add-project-btn" id="addProjectBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add Project
+            </button>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be dynamically added here -->
+                <div class="project-card sample-card">
+                    <div class="project-badge personal">Personal</div>
+                    <div class="project-image">
+                        <div class="placeholder-image">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21,15 16,10 5,21"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sample Project</h3>
+                        <p class="project-description">This is a placeholder. Click "Add Project" to add your own!</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Next.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">
+                                Visit
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title gradient-text">About Me</h2>
+                    <p class="about-paragraph">
+                        I'm a passionate developer who loves creating engaging digital experiences. 
+                        I specialize in building modern, responsive websites and applications that 
+                        combine beautiful design with smooth functionality.
+                    </p>
+                    <p class="about-paragraph">
+                        Whether it's a personal project or client work, I bring creativity and 
+                        attention to detail to every project. I'm constantly learning new 
+                        technologies and pushing the boundaries of what's possible on the web.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">🎨</div>
+                            <h4>Design</h4>
+                            <p>Modern UI/UX</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">💻</div>
+                            <h4>Development</h4>
+                            <p>Clean Code</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🚀</div>
+                            <h4>Performance</h4>
+                            <p>Optimized</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">📱</div>
+                            <h4>Responsive</h4>
+                            <p>All Devices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title gradient-text">Get In Touch</h2>
+                <p class="section-subtitle">
+                    Let's work together on your next project
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:aiden@example.com" class="contact-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Aiden Williams. Made with ❤️</p>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h3 class="modal-title">Add New Project</h3>
+            <form id="projectForm" class="project-form">
+                <div class="form-group">
+                    <label for="projectTitle">Project Title *</label>
+                    <input type="text" id="projectTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Description *</label>
+                    <textarea id="projectDescription" name="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="projectImage">Image URL</label>
+                    <input type="url" id="projectImage" name="image" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="projectLink">Live URL</label>
+                    <input type="url" id="projectLink" name="link" placeholder="https://yoursite.com">
+                </div>
+                <div class="form-group">
+                    <label for="projectGithub">GitHub URL</label>
+                    <input type="url" id="projectGithub" name="github" placeholder="https://github.com/username/repo">
+                </div>
+                <div class="form-group">
+                    <label for="projectTags">Tags (comma separated)</label>
+                    <input type="text" id="projectTags" name="tags" placeholder="React, Next.js, TypeScript">
+                </div>
+                <div class="form-group">
+                    <label for="projectType">Project Type</label>
+                    <select id="projectType" name="type">
+                        <option value="personal">Personal Project</option>
+                        <option value="client">Client Work</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

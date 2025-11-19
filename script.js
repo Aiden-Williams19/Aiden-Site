@@ -75,7 +75,7 @@ function loadProjects() {
         const projects = JSON.parse(savedProjects);
         displayProjects(projects);
     } else {
-        // Initialize with empty array except for sample card
+        // Initialize with empty array
         return [];
     }
 }
@@ -87,8 +87,8 @@ function saveProjects(projects) {
 
 // Display projects in the grid
 function displayProjects(projects) {
-    // Clear existing projects (except sample card if it exists)
-    const existingCards = projectsGrid.querySelectorAll('.project-card:not(.sample-card)');
+    // Clear existing projects
+    const existingCards = projectsGrid.querySelectorAll('.project-card');
     existingCards.forEach(card => card.remove());
     
     // Add all projects
@@ -279,21 +279,6 @@ projectForm.addEventListener('submit', (e) => {
     displayProjects(projects);
     closeModal();
 });
-
-// Remove sample card on first project add
-let sampleCardRemoved = false;
-const originalLoadProjects = loadProjects;
-loadProjects = function() {
-    const projects = originalLoadProjects();
-    if (!sampleCardRemoved && projects.length > 0) {
-        const sampleCard = projectsGrid.querySelector('.sample-card');
-        if (sampleCard) {
-            sampleCard.remove();
-            sampleCardRemoved = true;
-        }
-    }
-    return projects;
-};
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {

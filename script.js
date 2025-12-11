@@ -8,6 +8,11 @@ const addProjectBtn = document.getElementById('addProjectBtn');
 const modalClose = document.getElementById('modalClose');
 const cancelBtn = document.getElementById('cancelBtn');
 const projectForm = document.getElementById('projectForm');
+const projectImageInput = document.getElementById('projectImage');
+const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+const imagePreview = document.getElementById('imagePreview');
+const removeImageBtn = document.getElementById('removeImageBtn');
+let selectedImageBase64 = null;
 
 // ========== Check and Load Hero Image ==========
 function setupHeroImage() {
@@ -255,7 +260,52 @@ function closeModal() {
     projectModal.classList.remove('active');
     document.body.style.overflow = '';
     projectForm.reset();
+    // Reset image preview
+    selectedImageBase64 = null;
+    imagePreviewContainer.style.display = 'none';
+    imagePreview.src = '';
 }
+
+// Handle image file selection
+projectImageInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        // Validate file type
+        if (!file.type.startsWith('image/')) {
+            alert('Please select an image file');
+            e.target.value = '';
+            return;
+        }
+        
+        // Validate file size (max 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('Image size must be less than 5MB');
+            e.target.value = '';
+            return;
+        }
+        
+        // Convert to base64
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            selectedImageBase64 = event.target.result;
+            imagePreview.src = selectedImageBase64;
+            imagePreviewContainer.style.display = 'block';
+        };
+        reader.onerror = () => {
+            alert('Error reading image file');
+            e.target.value = '';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Handle remove image button
+removeImageBtn.addEventListener('click', () => {
+    selectedImageBase64 = null;
+    projectImageInput.value = '';
+    imagePreviewContainer.style.display = 'none';
+    imagePreview.src = '';
+});
 
 // Handle form submission
 projectForm.addEventListener('submit', (e) => {
@@ -268,7 +318,7 @@ projectForm.addEventListener('submit', (e) => {
         id: Date.now().toString(),
         title: formData.get('title'),
         description: formData.get('description'),
-        image: formData.get('image'),
+        image: selectedImageBase64 || formData.get('image') || '', // Use uploaded image or URL if provided
         link: formData.get('link'),
         github: formData.get('github'),
         tags: tags,

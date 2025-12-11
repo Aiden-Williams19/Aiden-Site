@@ -856,6 +856,72 @@ body {
     box-shadow: 0 0 0 3px rgba(36, 59, 83, 0.1);
 }
 
+.file-input {
+    padding: 0.75rem 1rem;
+    border: 2px dashed var(--navy-300);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--navy-50);
+}
+
+.file-input:hover {
+    border-color: var(--navy-800);
+    background: var(--white);
+}
+
+.file-input:focus {
+    outline: none;
+    border-color: var(--navy-800);
+    border-style: solid;
+    box-shadow: 0 0 0 3px rgba(36, 59, 83, 0.1);
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.image-preview-container {
+    margin-top: 1rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--navy-200);
+}
+
+.image-preview {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.remove-image-btn:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
 .form-actions {
     display: flex;
     gap: 1rem;

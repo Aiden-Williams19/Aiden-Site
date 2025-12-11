@@ -453,7 +453,7 @@ body {
 }
 
 .add-project-btn {
-    display: flex;
+    display: none; /* Hidden by default - only visible in admin mode */
     align-items: center;
     gap: 0.5rem;
     padding: 1rem 2rem;
@@ -467,6 +467,10 @@ body {
     transition: var(--transition);
     box-shadow: var(--shadow-md);
     margin-bottom: 3rem;
+}
+
+.add-project-btn.admin-mode {
+    display: flex;
 }
 
 .add-project-btn:hover {

@@ -181,7 +181,7 @@ deleteBtnStyle.textContent = `
         border-radius: 50%;
         width: 36px;
         height: 36px;
-        display: flex;
+        display: none; /* Hidden by default */
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -190,7 +190,11 @@ deleteBtnStyle.textContent = `
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     
-    .project-card:hover .delete-btn {
+    .admin-mode .delete-btn {
+        display: flex;
+    }
+    
+    .admin-mode .project-card:hover .delete-btn {
         opacity: 1;
     }
     
@@ -280,9 +284,57 @@ projectForm.addEventListener('submit', (e) => {
     closeModal();
 });
 
+// ========== Admin Mode ==========
+let adminMode = false;
+
+// Check localStorage for admin mode state
+function loadAdminMode() {
+    const savedAdminMode = localStorage.getItem('portfolioAdminMode');
+    if (savedAdminMode === 'true') {
+        toggleAdminMode(true);
+    }
+}
+
+// Toggle admin mode
+function toggleAdminMode(forceState = null) {
+    if (forceState !== null) {
+        adminMode = forceState;
+    } else {
+        adminMode = !adminMode;
+    }
+    
+    localStorage.setItem('portfolioAdminMode', adminMode.toString());
+    
+    // Toggle add project button
+    if (adminMode) {
+        addProjectBtn.classList.add('admin-mode');
+        document.body.classList.add('admin-mode');
+    } else {
+        addProjectBtn.classList.remove('admin-mode');
+        document.body.classList.remove('admin-mode');
+    }
+    
+    // Reload projects to show/hide delete buttons
+    const savedProjects = localStorage.getItem('portfolioProjects');
+    if (savedProjects) {
+        const projects = JSON.parse(savedProjects);
+        displayProjects(projects);
+    }
+}
+
+// Keyboard shortcut: Ctrl+Shift+A to toggle admin mode
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        e.preventDefault();
+        toggleAdminMode();
+        console.log(`Admin mode ${adminMode ? 'enabled' : 'disabled'}`);
+    }
+});
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     setupHeroImage();
+    loadAdminMode(); // Load admin mode state first
     loadProjects();
     
     // Add entrance animations to sections
